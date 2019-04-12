@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>壹行天下运营数据分析</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- <link rel="stylesheet" href="./CSS/bootstrap.min.css"  media="all"> -->
+    <link rel="stylesheet" href="./CSS/bootstrap.css"  media="all">
+    <link rel="stylesheet" href="./CSS/index.css"  media="all">
+    <link rel="stylesheet" href="./CSS/layui.css"  media="all">
+
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body font-family:'Mircrosoft YaHei';font-size:14px;>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->          
+          
+<div class="container index">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+            <div class="datewrap">
+                <div id=dateTime>
+                    <span></span>
+                    <span></span>
+                </div>        
+            </div>
+			<h3>       
+                <img src="./img/title.png" width="100%" alt="">
+            </h3>        
+    
+            
+    
+		</div>
+	</div>
+	<div class="row clearfix">
+    <!-- left -->
+        <div class="col-md-3 column">
+            <div id="left">
+                <div class="row clearfix" id="left-top">
+                    <div class="col-md-12 column " style="height:100%">
+                        <div class="barContent">
+                            <!-- 省份 -->
+                            <div class="barProvince"  style="display:none">
+                                <span>售票量统计</span>
+                                <span></span>
+                            </div>
+                            <div id="barPro" style="height:350px;display:none"></div>
+                            <!-- <div id="barPro" style="width:100%;height:100%;display:none"></div> -->
+
+                            <!-- 全国 -->
+                            <!-- <div id="bar" style="width:100%;height:100%;display:block"></div> -->
+                            <div id="bar" style="height:350px;display:block"></div>
+
+                            
+                        </div>
+                    </div>               
+                </div>
+                <!-- <div class="row clearfix" id="left-buttom" style="display: none">
+                    <div class="col-md-6 column">                    
+                    </div>
+                    <div class="col-md-6 column">
+                    </div>
+                </div> -->
+              
+                <div class="row clearfix" id="left-buttom">
+                      <!-- progress 进度条-->
+                    <div class="col-md-6 column" id="range-part"> 
+                        <div id="range-part">
+                                <h5 class="range-title">今日售票量Top10线路</h5>
+                                <div class="range-part"></div>
+                                 <!-- <div class="line-part">
+                                    <div class="line-progress">
+                                        <span class="order-num">1</span>
+                                        <span class="progressbar-title">靖西站-百色</span>
+                                    </div>
+                                    <span class="progress progress-bar"></span>
+                                </div> 
+                               <div class="line-progress line-one">
+                                    <span class="order-num">1</span>             
+                                    <span class="progressbar-title">宜州市汽车服务站-南宁（直达）</span>
+                                    <span class="progress progress-bar" style="width: 30%; ">                          
+                                </div>  -->
+                               
+                               
+                        </div>
+                        
+                    </div> 
+
+                    <div class="col-md-6 column" > 
+                        <div class="row clearfix">
+                            <div class="col-md-12 column" > 
+                                <div id="appBox" style="height:80px"></div>
+                                <div id="percent" style="height:250px"></div>  
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column" >
+                                <div id="rouse" style="height:200px"></div>    
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+        </div>     
+    
+
+    <!-- center -->
+		<div class="col-md-6 column" >
+      <!-- <div id="left"> -->
+            <!-- <div class="linesin">
+                    <img src="./img/linesin.png" width="100%" alt="">
+                </div> -->
+          <div id="main-left">
+              <div class="left-content">
+                 <!--  <div id="totalSale">
+                     <span> </span>
+                     <span></span>
+                     <span></span>
+                  </div> -->
+
+                  <!-- 数据展示 -->
+                  <div id="dataShow">
+                      <div id="backnet">
+                          <img src="./img/analyss.png"  width="400px" alt="">
+                      </div>                     
+                       <!-- <b>售票量</b> -->     
+                      <div id="total">
+                          <span class="textSale">售票总量</span>
+                          <!-- <span id="totalSale">97,097,209,286</span> -->
+                          <div id="totalSale"></div>
+
+                      </div>
+                      <!-- 车站联网数(率)  -->
+                      <div id="station">
+                          <span class="stationText">今日访问量</span>
+                          <div class="stationLine" id="stationLine"></div>                            
+                      </div>
+                      <!-- 班车上线数(率)  -->
+                      <div id="shuttle">
+                          <span class="shuttleText">今日售票量</span>
+                          <span class="shuttle-extra"></span>
+                          <div class="shuttleLine" id="shuttleLine"></div>     
+                        
+                      </div>
+                      <!-- 客票可售数(率)  -->
+                      <!-- 51899306 -->
+                      <div  id="tickets">                         
+                          <span class="ticketsText">今日可售班次</span>
+                          <div class="ticketsSale" id="ticketsSale"></div>   
+                          
+                      </div>
+                      <div id="lineShape">
+                        <img src="./img/bar.png" alt="">
+                      </div>                      
+                      
+                  </div>  
+                  <div id="stationNumber">
+                        <div class="stationNum"></div>
+                        <span>全国客运站接入量</span>
+                        <span>
+                            <img src="./img/station.png" alt="" width="18px">
+                            <img src="./img/station.png" alt="" width="18px">
+                            <img src="./img/station.png" alt="" width="18px">
+                            <img src="./img/station.png" alt="" width="18px">
+                            <img src="./img/station.png" alt="" width="18px">
+                            <img src="./img/station.png" alt="" width="18px">                          
+                        </span>                          
+
+                    </div> 
+                  <!-- 地图 -->    
+                  <div id="map" style="width:100%;height: 500px;"></div>               
+                  <!-- 弹出框 -->
+                  <!-- <div id="box" > -->
+                  <div id="box" onmousedown="mouseDown(this,event)" onmousemove="mouseMove(event)" onmouseup="mouseUp(event)">
+                      <span id="box-title"></span>
+                      <!-- <span >昨日售票量</span> -->
+                      <!-- <span id="box-value"></span> -->
+                      <div id="saleT">                      
+                        <span class="saleTnum"></span>
+                        <span class="saleTtext">今日售票量</span>
+                      </div>
+                      <div id="saleBs">                       
+                        <span class="saleTnum"></span>
+                        <span class="saleTtext">今日可售班次</span>
+                      </div> 
+                      <div id="saleSt">                       
+                        <span class="saleTnum"></span>
+                        <span class="saleTtext">客运站接入量</span>
+                      </div>                      
+                      <!-- <div id="Notes">
+                          <p>注: "-"代表暂无数据</p>             
+                      </div> -->
+                  </div>
+              </div>
+                
+            </div>
+      <!-- </div> -->
+       
+        </div>
+  
+  
+    <!-- right -->
+		<div class="col-md-3 column"  >
+            <div id="right">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div id="trend" style="height:300px"></div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div id="pie" style="height:300px"></div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div id="passager" style="height:200px"></div>
+                    </div>
+                </div>
+            </div>			
+		</div>
+
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column" style="height:5px"></div>
+    </div>
+</div>
+ 
+          
+<!-- <script src="./map/layui.all.js" charset="utf-8"></script> -->
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<!-- <script></script> -->    
+<script type="text/javascript" src="./map/jquery.min.js"></script>  
+<script type="text/javascript" src="./js/timePick.js"></script>
+<script type="text/javascript" src="./map/echarts.js"></script>
+<script type="text/javascript" src="./map/china.js"></script>
+<!-- <script type="text/javascript" src="./js/layui.all.js"></script> -->
+<script type="text/javascript" src="./js/countUp.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/drop.js"></script>
+
+<script>
+    // var wordbox = $(".progressbar-title");
+    
+    var wordbox = document.querySelectorAll(".progressbar-title");
+    console.log(wordbox);
+
+
+    // var maxHeight = "100px";
+    // var minSize = "10px";
+    // var maxSize = "20px";
+
+  this.resetFontSize=function (wordbox, maxHeight, minSize, maxSize) {  
+        //   var wordbox = $(".products .title");  
+        //最大高度  
+        //var maxHeight = 30;  
+        //初始化文字大小为最小  
+        wordbox.css('font-size', minSize + "px");  
+        maxSize++;  
+        wordbox.each(function () {  
+            //循环修改大小直至大于最大高度  
+            for (var i = minSize; i < maxSize; i++) {  
+                if ($(this).height() > maxHeight) {  
+                    //当容器高度大于最大高度的时候，上一个尝试的值就是最佳大小。  
+                    $(this).css('font-size', (i - 2) + 'px');  
+                    console.log(this);
+                    
+                    //结束循环  
+                    break;  
+                } else {  
+                    //如果小于最大高度，文字大小加1继续尝试  
+                    $(this).css('font-size', i + 'px');  
+                }  
+            }  
+        });  
+    };  
+</script>
+
+</body>
+</html>
